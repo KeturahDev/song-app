@@ -4,24 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { Songs } from './greatest-hits'
 
-function getElements(songs) {
-
-  $('#song1').text(`1: ${songs.hits[0].result.title}`)
-  $('#song1').text(`1: ${songs.hits[0].result.title}`)
-  $('#song2').text(`2: ${songs.hits[1].result.title}`)
+function getHits(songs) {
+  for (var i = 0; i < 5 ; i++) {
+    $('#hit-list').append(`<li>${songs.hits[i].result.title}</li>`)
+  }
+  $('img').attr('src',`${songs.hits[0].result.primary_artist.image_url}`)
+  console.log(`${songs.hits[0].result.primary_artist.image_url}`)
 }
 
 async function order(input){
-  console.log('input:',input)
   let song = new Songs(input);
   await song.getFetch(input);
-  await getElements(song.jsonifiedObj);
+  await getHits(song.jsonifiedObj);
+
 }
 $(document).ready(function() {
   $('form#artisty').submit(function(event) {
     event.preventDefault();
+    $('#hit-list').empty();
     let userInput = $('#artist').val();
-    console.log(userInput)
     order(userInput);
   })
 })
