@@ -8,7 +8,7 @@ export class Songs {
       'method': 'GET',
       'headers': {
         'x-rapidapi-host':  "genius.p.rapidapi.com",
-        "x-rapidapi-key": "561654212dmshac848292193184bp1e7095jsnad088f3d69ab"
+        "x-rapidapi-key": `${process.env.API_KEY}`
       }
       
     });
