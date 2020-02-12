@@ -6,8 +6,10 @@ import { Songs } from './greatest-hits'
 
 function getHits(songs) {
   for (var i = 0; i < 5 ; i++) {
-    $('#hit-list').append(`<li>${songs.hits[i].result.title}</li>`)
+    $('#hit-list').append(`<li>${songs.hits[i].result.title}, <a href="${songs.hits[i].result.url}">Link to Lyrics</a></li>`)
+    
   }
+
   $('img').attr('src',`${songs.hits[0].result.primary_artist.image_url}`)
   console.log(`${songs.hits[2].result.primary_artist.image_url}`)
 }
