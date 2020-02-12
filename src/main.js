@@ -6,18 +6,23 @@ import { Songs } from './greatest-hits'
 
 function getElements(songs) {
 
-  $('#song').text(`This is their top greatest song: ${songs.hits[0].result.title}`)
+  $('#song1').text(`1: ${songs.hits[0].result.title}`)
+  $('#song1').text(`1: ${songs.hits[0].result.title}`)
+  $('#song2').text(`2: ${songs.hits[1].result.title}`)
 }
 
-async function order(){
-  let song = new Songs();
-  await song.getFetch();
+async function order(input){
+  console.log('input:',input)
+  let song = new Songs(input);
+  await song.getFetch(input);
   await getElements(song.jsonifiedObj);
 }
 $(document).ready(function() {
-  $('form#artist').submit(function(event) {
+  $('form#artisty').submit(function(event) {
     event.preventDefault();
-    order();
+    let userInput = $('#artist').val();
+    console.log(userInput)
+    order(userInput);
   })
 })
  

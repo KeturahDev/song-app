@@ -1,10 +1,11 @@
 export class Songs {
-  constructor() {
+  constructor(input) {
     this.jsonifiedObj = '';
+    this.input = input
   }
 
-  async getFetch() {
-    let songs = await fetch('https://genius.p.rapidapi.com/search?q=Post%20Malone', {
+  async getFetch(input) {
+    let songs = await fetch(`https://genius.p.rapidapi.com/search?q=${input}`, {
       'method': 'GET',
       'headers': {
         'x-rapidapi-host':  "genius.p.rapidapi.com",
