@@ -7,7 +7,7 @@ export class Songs {
 
   async getFetch(input) {
     try {
-      let songs = await fetch(`https://genius.p.rapidapi.com/sear?q=${input}`, {
+      let songs = await fetch(`https://genius.p.rapidapi.com/search?q=${input}`, {
         'method': 'GET',
         'headers': {
           'x-rapidapi-host':  "genius.p.rapidapi.com",
