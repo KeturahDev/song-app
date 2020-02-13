@@ -28,6 +28,7 @@ async function order(input){
 $(document).ready(function() {
   $('form#artisty').submit(function(event) {
     event.preventDefault();
+    $('.output').show();
     $('img').attr('src', '');
     $('#hit-list').empty();
     $('.errors').empty();

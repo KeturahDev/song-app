@@ -5,21 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
   <title>Song App</title>
 </head>
 
 <body>
   <div class="container">
-    <h1>Song Stuff</h1>
+    <h1>Top Hits Search!</h1>
     <form id="artisty">
-      <label for="">artist</label>
-      <input id="artist" type="text">
-      <button type="submit">enter</button>
+      <label for="">Enter an artist:</label><br>
+      <input id="artist" type="text"><br>
+      <button type="submit">Enter</button>
     </form>
-    <div class="output">
+
+    <div class="output card">
       <h2>These are their top five songs!</h2>
-      <ol id="hit-list"></ol>
+      <div class="card-body">
+        <ol id="hit-list"></ol>
+
+      </div>
     </div>
+
     <div class = "errors"></div>
 
     <div id="portrait">
