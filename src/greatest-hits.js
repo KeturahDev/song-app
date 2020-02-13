@@ -3,6 +3,7 @@ export class Songs {
     this.jsonifiedObj = '';
     this.input = input
     this.status = ''
+    this.array = []
   }
 
   async getFetch(input) {
@@ -11,17 +12,23 @@ export class Songs {
         'method': 'GET',
         'headers': {
           'x-rapidapi-host':  "genius.p.rapidapi.com",
-          "x-rapidapi-key": `${process.env.API_KEY}`
+          "x-rapidapi-key": `${process.env.APIKEY}`,
         }
-
+        
       });
-      console.log(songs.status)
-      if (songs.status != 200) {
-        this.status = false
-      } else {
-        let json = await songs.json();
-        this.jsonifiedObj = json.response;
-      }
+      console.log(songs.status);
+      let json = await songs.json();
+      this.array = json.response.hits;
+        if (songs.status != 200) {
+          this.status = false
+        } else {
+          this.jsonifiedObj = json.response;
+          if (this.array.length > 1) {
+            console.log('returns more than one object');
+          } else {
+            console.log('error: did not returnan array of objects')
+          }
+        }
     } catch(error) {
         console.warn('oh no whatcha do??');
     }
